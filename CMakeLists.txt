@@ -1,13 +1,18 @@
-cmake_minimum_required(VERSION 3.5)
-project(TP1)
+cmake_minimum_required(VERSION 3.14)
+project(TP_1)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES
-    Principal.cpp
-    Regle.cpp
-    Regle.h
-    SystemeExpert.cpp
-    SystemeExpert.h)
+include(FetchContent)
+FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+)
 
-add_executable(TP1 ${SOURCE_FILES})
+FetchContent_MakeAvailable(googletest)
+
+add_executable(TP_1 Principal.cpp Regle.cpp SystemeExpert.cpp)
+
+enable_testing()
+
+add_subdirectory(tests)
