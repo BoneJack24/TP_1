@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <fstream>
+
 using namespace std;
 
 #include "SystemeExpert.h"
@@ -24,7 +25,7 @@ int main()
 	tp1::SystemeExpert se1;		//Le système expert utilisé pour les tests de base.
 	tp1::SystemeExpert se2;		//Le système expert utilisé principalement pour le chaînage avant.
     tp1::SystemeExpert se3;		//Le système expert utilisé principalement pour le chaînage arrière.
-	tp1::Regle re;				//Une règle.
+	tp1::Regle re;              //Une règle.
 	tp1::TypeFait fait;			//Un fait.
     ifstream EntreeFichier1, EntreeFichier2;	//Flux d'entrée
     std::vector<tp1::Regle> er;	//Un vecteur de règles pour le retour du chaînage (avant et arrière).
@@ -64,6 +65,8 @@ int main()
 			{
 				case 1:
 					//Ajouter une regle au systeme expert.
+                    //tp1::TypeFait p_premisse; // Voir si pertinent
+                    //tp1::TypeFait p_conclusion; // Voir si pertinent
                     if (find(re.GetPremisses().begin(), re.GetPremisses().end(), "a des poils") == re.GetPremisses().end())
 					    re.GetPremisses().push_back("a des poils");
                     if (find(re.GetConclusions().begin(), re.GetConclusions().end(), "est un mammifere") == re.GetConclusions().end())

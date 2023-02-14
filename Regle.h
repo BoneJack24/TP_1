@@ -23,6 +23,7 @@ namespace tp1
 
 typedef std::string TypeFait;	//Le type du fait : une chaîne de caractères
 
+
 class Regle{
 
 	public:
@@ -53,14 +54,31 @@ class Regle{
 			return os;
 		}
 
+        // Méthodes
+
+        void copierListesPremissesConclusions(const Regle & p_objetACopie);
+        //void ajouter(const TypeFait &, const int &);
+        //int trouverPositionDunElement(const TypeFait & p_elementATrouver);
 
 		//Accesseurs
-		std::list<TypeFait> & GetPremisses () {return premisses;};
-		std::list<TypeFait> & GetConclusions () {return conclusions;};
+        const TypeFait req_premisse();
+        const TypeFait req_conclusion();
+
+        // Variables et structure de données
+		std::list<TypeFait> & GetPremisses ()
+        {
+            return premisses;
+        };
+		std::list<TypeFait> & GetConclusions ()
+        {
+            return conclusions;
+        };
 
 
 	private:
 
+        TypeFait m_premisse;
+        TypeFait m_conclusion;
 		std::list<TypeFait> premisses;	// L’ensemble des prémisses d’une règle (utilise la liste STL)
 		std::list<TypeFait> conclusions;	// L’ensemble des conclusions d’une règle (utilise la liste STL)
 };
