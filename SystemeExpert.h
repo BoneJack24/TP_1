@@ -105,12 +105,41 @@ class SystemeExpert{
     std::vector<Regle> & getBaseRegles () {return baseRegles;}
 	std::list<TypeFait> & getBaseFaits () {return baseFaits;}
 
+    // Méthodes
+
+    void copierConteneursDeDonnees(const SystemeExpert & p_objetACopie);
+
+    int compteurLignesTxt(const TypeFait p_Texte) const;
+    bool conclusionEstPremierElementDansPremisse(const TypeFait p_Conclusion, const TypeFait p_Premisse) const;
+    bool faitEstDansPremisse(const TypeFait p_Fait, const TypeFait p_Premisse) const;
+    TypeFait concatenerPremisses(std::list<TypeFait> p_liste);
+    TypeFait concatenerConclusions(std::list<TypeFait> p_liste);
+
+
   private:
 
     std::vector<Regle> baseRegles;	//Contient toutes les règles connues du système expert (utilise un vector de la STL)
     std::list<TypeFait> baseFaits;	//Contient tous les faits connus du système expert (utilise une list de la STL)
 
    //Ajouter ici des fonctions utilitaires si nécessaire.
+
+    bool p_hypotheseDansConclusionRegle = false; // booléen qui sert d'indicateur aux méthodes, si l'hypothèse a été
+                                                // trouvée dans la règle en évaluation.
+    bool p_elementDansListeFaits = false;   // booléen qui sert d'indicateur aux méthodes, s'il y a au moins un fait,
+                                            // des prémisses de la règle, qui se retrouve dans la lise de faits de l'objet.
+    std::list<TypeFait> pl_FaitsTampon; // vecteur contenant les faits des premisses de la règle en évaluation par le programme.
+    std::list<TypeFait> p_lFaitsListeComparative;   // liste ou on ajoute les faits qui se retrouve autant dans la liste
+                                                    // des premisses que dans la liste des faits de l'objet. Servira de
+                                                    // comparaison avec la liste de faits de l'objet pour valider l'hypothèse.
+    int i_regle = -1; // iterateur pour connaître la position de la regle dans le vecteur 'regles'
+    tp1::TypeFait m_hypothese; // hypothèse qui est en évaluation par le programme
+    std::vector<Regle> m_regles; // vecteur contenant les regles utilisée pour la validation d'une hypothèse
+    int p_tailleVReglesEntree; // taile du vecteur à l'entrée de l'évaluation d'une hypopthèse
+    int p_tailleVReglesSortie; // taille du vecteiur à la sortie de l'évaluation d'une hypthèse
+
+    TypeFait m_conclusion = "";
+    TypeFait m_conclusionTronquee = "";
+    int compteur = 0;
 
 };
 

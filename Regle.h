@@ -57,12 +57,10 @@ class Regle{
         // Méthodes
 
         void copierListesPremissesConclusions(const Regle & p_objetACopie);
-        //void ajouter(const TypeFait &, const int &);
-        //int trouverPositionDunElement(const TypeFait & p_elementATrouver);
 
 		//Accesseurs
-        const TypeFait req_premisse();
-        const TypeFait req_conclusion();
+        //const TypeFait req_premisse();
+        //const TypeFait req_conclusion();
 
         // Variables et structure de données
 		std::list<TypeFait> & GetPremisses ()

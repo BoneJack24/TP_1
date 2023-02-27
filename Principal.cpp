@@ -32,6 +32,20 @@ int main()
     bool test = false;	// Pour tester la véracité d'une hypothèse par chaînage arrière.
     int nr = 1; //utilisé pour numeroter les règles.
 
+    // *** À ENLEVER DANS LE CODE FINAL ***
+    list<tp1::TypeFait> baseFaits;
+    baseFaits.push_back("a des yeux");
+    baseFaits.push_back("a des bras");
+    baseFaits.push_back("a des jambes");
+    list<tp1::TypeFait>::iterator itTest = baseFaits.begin();
+    cout << *itTest << endl;
+    advance(itTest,1);
+    cout << *itTest << endl;
+    advance(itTest,1);
+    cout << *itTest << endl;
+    cout <<endl;
+
+    //
 
 	//Affichage du menu
 	cout << "------------------ Menu --------------------------------" << endl;
